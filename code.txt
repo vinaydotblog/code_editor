@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+	.box{background:seagreen;height:100px;width:100px;}
+  </style>
+</head>
+<body>
+    <h2>You are currently using PHP <?php echo phpversion(); ?></h2>
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+//	Useful SCSS mixins
+
+$blue = #25547b;
+
+@mixin box($color: seagreen, $size: 100px)
+{
+	width: $size;
+	height: $size;
+	background: $color;
+}
+
+@mixin circle($color: seagreen, $radius: 50px){
+	border-radius: 50%;
+	width: $radius * 2;
+	height: $radius * 2;
+	background: $color;
+}
+
+@mixin webfont($font : list of items)
+{
+  $url: "//fonts.googleapis.com/css?family=";
+  $font : unquote($font);
+  $i : 0;
+  
+  @each $word in $font {
+    $i : $i + 1;
+    $url : $url + $word;
+    @if( $i < length($font) ){
+      $url : $url + '+'
+    }
+  }
+  
+  @import url('#{$url}')
+}
