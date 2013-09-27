@@ -12,7 +12,7 @@ Clone this repository using
 cd into editor directory and fetch all sub modules recursively.
 
 	cd editor
-	git submodule update --recursive
+	git submodule update --init --recursive
 
 Make `code.txt` writable.
 	
