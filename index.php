@@ -82,8 +82,9 @@
 		#gists{ position: absolute; right: 20px; top: 20px; display: none; }
 
 		a.home{ color: white; float: right; font-size: .5em; margin: 5px; }
+
+		.ace_editor div { font-family: monospace; }
 	</style>
-	<link rel="stylesheet" href="<?php echo $base; ?>codemirror/codemirror.css">
 	</head>
 <body>	
 	<header>
