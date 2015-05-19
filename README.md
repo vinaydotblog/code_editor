@@ -18,6 +18,10 @@ Make `code.txt` writable.
 	
 	chmod 777 code.txt
 
+## Run using php's built in server
+
+`cd editor`
+`php -S localhost:8000`
 
 ## Features
 - PHP, HTML, CSS, JavaScript Compilation
@@ -30,5 +34,9 @@ Make `code.txt` writable.
 - `ctrl+enter` Compile code and see output
 - `ctrl+d` Remove current line
 - `ctrl+shift+d` Duplicate current line
+
+## Screenshot
+![Screenshot](https://lh3.googleusercontent.com/thhRAfhLOCH64XsgDJHltGvenYFe0ZvAJWfJ9Jxv7B5obtxijAasvV4Mg9z7v9fqI4cZjWpW9UWFju8=w1342-h560-rw "Paste your code and just run it!")
+
 
 Feel free to try [emmet](http://docs.emmet.io) awesomeness and [ace keyboard shortcuts](https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts).
