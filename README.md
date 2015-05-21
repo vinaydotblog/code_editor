@@ -36,7 +36,7 @@ Make `code.txt` writable.
 - `ctrl+shift+d` Duplicate current line
 
 ## Screenshot
-![Screenshot](https://lh3.googleusercontent.com/thhRAfhLOCH64XsgDJHltGvenYFe0ZvAJWfJ9Jxv7B5obtxijAasvV4Mg9z7v9fqI4cZjWpW9UWFju8=w1342-h560-rw "Paste your code and just run it!")
+![Screenshot](http://oi61.tinypic.com/bg4ig5.jpg "Paste your code and just run it!")
 
 
 Feel free to try [emmet](http://docs.emmet.io) awesomeness and [ace keyboard shortcuts](https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts).
