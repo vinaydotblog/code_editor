@@ -67,12 +67,11 @@
 		header #logo{font-size:2em;font-weight:700;color:#FFF;font-style:italic;font-family:Halvatica;margin-left:20px}
 		#main{position:absolute;height:94%;width:100%; min-height: 300px;}
 		#editor,#processed{display:block;}
-		#processed{ height: 60%; }
 
 		#code,#editor form{height:100%}
 		.controls{position:absolute;right:50px}
 		#code{width:100%;font-family:consolas,monaco,'courier new', serif;font-size:15px;
-		outline:none;padding-top:5px;border:5px solid #550505;-webkit-box-sizing:border-box;
+		outline:none;padding-top:5px;border:5px solid #550505;border-bottom: none;-webkit-box-sizing:border-box;
 		height: 300px;
 		box-shadow:0 0 4px #201F1F;resize:none;background:#eee;color:#5E0303; tab-size: 3;}
 		#editor{background-color:#eee}
@@ -84,6 +83,9 @@
 		a.home{ color: white; float: right; font-size: .5em; margin: 5px; }
 
 		.ace_editor div { font-family: monospace; }
+
+		#resizeframe { border: 3px solid #550505; cursor: row-resize; }
+		.mask { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
 	</style>
 	</head>
 <body>	
@@ -103,7 +105,7 @@
 				</div>
 		    </form>
 		</div>
-
+		<div id="resizeframe"></div>
 		<div id="processed">
 			<iframe id="frame" src="?p" frameborder="0"></iframe>
 			<div class="live"></div>
@@ -168,6 +170,55 @@
 		function safe_tags_replace(str) {
 		    return str.replace(/[&<>]/g, replaceTag);
 		}
+
+
+		// Resize Code Editor
+		(function(){
+			var frame = document.querySelector('#resizeframe'), active_drag = false, current_pos,
+			code = document.querySelector('#code'), height,
+			processed = document.querySelector('#processed'),
+			output_window = document.querySelector('#frame').contentWindow,
+			mask = document.createElement('div'),
+			iframe = document.querySelector('#frame');
+
+			iframe.style.height = (window.outerHeight - frame.offsetTop - 100) + 'px';
+
+			mask.className = "mask";
+			mask.style.display = "none";
+			document.body.appendChild(mask);
+
+
+			function mousedown(e){
+				active_drag = true;
+				current_pos = e.pageY;
+				height = code.offsetHeight;
+				mask.style.display = "block";
+			}
+			frame.addEventListener('mousedown', mousedown);
+			// output_window.addEventListener('mousedown', mousedown);
+
+			function moving(e){
+				if(active_drag) {
+					var move = e.pageY - current_pos;
+					code.style.height = height + move + "px";
+					editor.resize();
+
+					iframe.style.height = (window.outerHeight - frame.offsetTop - 100) + 'px';
+				}
+			}
+
+			window.addEventListener('mousemove', moving);
+			output_window.addEventListener('mousemove', moving);
+
+			function mouseup(e){
+				active_drag = false;
+				mask.style.display = "none";
+			}
+
+			window.addEventListener('mouseup', mouseup);
+
+			output_window.addEventListener('mouseup', mouseup);
+		})();
 	</script>
 </body>
 </html>
