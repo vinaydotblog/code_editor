@@ -127,13 +127,12 @@
 			ajax('',{ code: editor.getValue() },function(){ fr.src = '?p';	});
 			e.preventDefault();
 		});
-
-		document.addEventListener('keyup', function(e){
+		
+		document.addEventListener('keydown', function(e){
 			if( e.ctrlKey && e.keyCode === 13 )
 			{
 				e.preventDefault();
 				ajax('',{ code: editor.getValue() },function(){ fr.src = '?p';	});
-				// code.innerHTML = safe_tags_replace( editor.getValue() );
 			}
 		});
 
