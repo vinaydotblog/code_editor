@@ -9,12 +9,7 @@ A web based code editor meant to be used on your local development environment.
 
 Clone this repository using 
 
-	git clone https://github.com/vinnizworld/code_editor.git editor
-
-cd into editor directory and fetch all sub modules recursively.
-
-	cd editor
-	git submodule update --init --recursive
+	git clone --recursive https://github.com/vinnizworld/code_editor.git editor
 
 Make `code.txt` writable.
 	
